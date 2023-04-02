@@ -19,7 +19,10 @@ const Auth = () => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
+      
     }));
+    console.log({name: e.target.name , value : e.target.value});
+    
   };
   const sendRequest = async (type = "login") => {
     const res = await axios
@@ -41,12 +44,12 @@ const Auth = () => {
     console.log(inputs);
     if (isSignup) {
       sendRequest("signup")
-        // .then((data) => localStorage.setItem("userId", data.user._id))
-        .then(() => dispath(authActions.login())) //Update the state inside the redux
+        .then((data) => localStorage.setItem("userId", data.user._id))
+        .then(() => dispath(authActions.login())) //Update the state inside the redux i.e Make isLoggedIn : true
         .then(() => naviagte("/blogs"));
     } else {
       sendRequest()
-        // .then((data) => localStorage.setItem("userId", data.user._id))
+        .then((data) => localStorage.setItem("userId", data.user._id))
         .then(() => dispath(authActions.login()))
         .then(() => naviagte("/blogs"));
     }
