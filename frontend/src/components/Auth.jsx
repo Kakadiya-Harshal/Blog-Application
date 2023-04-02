@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../store";
 import { useNavigate } from "react-router-dom";
 
+
 const Auth = () => {
   const naviagte = useNavigate();
   const dispath = useDispatch();
@@ -40,12 +41,12 @@ const Auth = () => {
     console.log(inputs);
     if (isSignup) {
       sendRequest("signup")
-        .then((data) => localStorage.setItem("userId", data.user._id))
-        .then(() => dispath(authActions.login()))
+        // .then((data) => localStorage.setItem("userId", data.user._id))
+        .then(() => dispath(authActions.login())) //Update the state inside the redux
         .then(() => naviagte("/blogs"));
     } else {
       sendRequest()
-        .then((data) => localStorage.setItem("userId", data.user._id))
+        // .then((data) => localStorage.setItem("userId", data.user._id))
         .then(() => dispath(authActions.login()))
         .then(() => naviagte("/blogs"));
     }

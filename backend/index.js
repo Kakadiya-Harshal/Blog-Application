@@ -4,12 +4,19 @@ import router from "./routes/user-routes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/databaseConnection.js";
+import bodyParser from "body-parser";
 
 dotenv.config();
 connectDB();
 const app = express();
+
+//body-parse
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
 
