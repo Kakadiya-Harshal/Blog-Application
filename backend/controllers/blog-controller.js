@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import Blog from "../model/Blog.js";
 import User from "../model/User.js";
 
+// This function gets invoked when user perform GET request on http://localhost:5000/api/blog/ to get all the blogs
 export const getAllBlogs = async (req, res, next) => {
   let blogs;
   try {
@@ -15,6 +16,7 @@ export const getAllBlogs = async (req, res, next) => {
   return res.status(200).json({ blogs });
 };
 
+// This function gets invoked when user perform POST request on http://localhost:5000/api/blog/add to add blogs
 export const addBlog = async (req, res, next) => {
   const { title, description, image, user } = req.body;
 
@@ -48,6 +50,7 @@ export const addBlog = async (req, res, next) => {
   return res.status(200).json({ blog });
 };
 
+// This function gets invoked when user perform PUT request on http://localhost:5000/api/blog/update/:id to update the corresponding blog
 export const updateBlog = async (req, res, next) => {
   const { title, description } = req.body;
   const blogId = req.params.id;
@@ -66,6 +69,7 @@ export const updateBlog = async (req, res, next) => {
   return res.status(200).json({ blog });
 };
 
+// This function gets invoked when user perform GET request on http://localhost:5000/api/blog/:id to get a particular blog through id
 export const getById = async (req, res, next) => {
   const id = req.params.id;
   let blog;
@@ -80,6 +84,7 @@ export const getById = async (req, res, next) => {
   return res.status(200).json({ blog });
 };
 
+// This function gets invoked when user perform DELETE request on http://localhost:5000/api/blog/:id to delet a particular blog through id
 export const deleteBlog = async (req, res, next) => {
   const id = req.params.id;
 
@@ -97,6 +102,7 @@ export const deleteBlog = async (req, res, next) => {
   return res.status(200).json({ message: "Successfully Delete" });
 };
 
+// This function gets invoked when user perform GET request on http://localhost:5000/api/blog/user/:id to get the Blogs of particular user
 export const getByUserId = async (req, res, next) => {
   const userId = req.params.id;
   let userBlogs;

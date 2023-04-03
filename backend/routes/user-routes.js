@@ -1,3 +1,5 @@
+//User routes are defined here
+
 import express from "express";
 import { getAllUser, login, signup } from "../controllers/user-controller.js";
 
