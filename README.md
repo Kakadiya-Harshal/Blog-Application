@@ -6,7 +6,8 @@
 - Used React as Frontend.
 - Used Express to create an APIs.
 - Used MONGOdb to store the data on the cloud.
-- For visual interface, Materiaal UI is being used.
+- For visual interface, Material UI is being used.
+- Used Redux for state management.
 - Used can performe CRUD operation on blogs.
 - User is authenticated using Email.
 
