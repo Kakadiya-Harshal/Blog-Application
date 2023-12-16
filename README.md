@@ -3,7 +3,7 @@
 <h3 align="left"> Specification of Project </h3>
 
 
-- Used React as Frontend.
+- Used React as Frontend Framework.
 - Used Express to create an APIs.
 - Used MONGOdb to store the data on the cloud.
 - For visual interface, Material UI is being used.
