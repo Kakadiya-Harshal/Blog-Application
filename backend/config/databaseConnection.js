@@ -1,4 +1,4 @@
-//Connection to databse
+//Connection to database
 
 import mongoose from "mongoose";
 import dotenv from "dotenv";
